@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        <title>GPREC QUIZ</title>
+        <meta content="" name="description" />
+        <meta content="" name="keywords" />
+
+        <!-- Favicons -->
+        <link
+            href="C:\Users\Parvathi\OneDrive\Documents\MAJOR PROJECT\FRONTEND\LANDING\assets\img\GPREC.png"
+            rel="icon"
+        />
+        <link href="/images/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+
+        <!-- Vendor CSS Files -->
+        <link href="/images/assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link
+            href="/images/assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/boxicons/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/glightbox/css/glightbox.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/swiper/swiper-bundle.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- Template Main CSS File -->
+        <link href="/style.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top header-transparent">
+            <div
+                class="container d-flex align-items-center justify-content-between"
+            >
+                <div class="logo">
+                    <!--<h1><a href="index.html">GPREC QUIZ</a></h1>-->
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a
+                        th:href="@{/user-page/hello}"
+                        ><img
+                            src="/images/logo.png"
+                            alt=""
+                            class="img-fluid"
+                    /></a>
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a
+                                class="nav-link scrollto"
+                                th:href="@{/user-page/hello}"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="nav-link scrollto"
+                                th:href="@{/user-page/user_quiz}"
+                                >Quiz</a
+                            >
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"
+                                ><span>Resources</span>
+                                <i class="bi bi-chevron-down"></i
+                            ></a>
+                            <ul>
+                                <li><a href="#">GATE</a></li>
+                                <li>
+                                    <a
+                                        th:href="@{/user-page/dsa}"
+                                        >DSA</a
+                                    >
+                                </li>
+                                <li><a href="#">TEXT BOOKS</a></li>
+                                <li><a href="#">QUESTION PAPERS</a></li>
+                                <li><a href="#">WEB DEVELOPMENT</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a
+                                class="getstarted scrollto"
+                                href="C:\Users\Parvathi\OneDrive\Documents\MAJOR PROJECT\FRONTEND\LANDING\index.html"
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <div
+            style="
+                width: 100%;
+                height: 100%;
+                position: relative;
+                background: white;
+            "
+        >
+            <div
+                style="
+                    width: 727px;
+                    height: 53px;
+                    left: 106px;
+                    top: 117px;
+                    position: absolute;
+                    background: #eff2f8;
+                    border-radius: 17px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                "
+            ></div>
+            <div
+                style="
+                    width: 727px;
+                    height: 53px;
+                    left: 115px;
+                    top: 679px;
+                    position: absolute;
+                    background: #eff2f8;
+                    border-radius: 17px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                "
+            ></div>
+            <div
+                style="
+                    width: 727px;
+                    height: 53px;
+                    left: 140px;
+                    top: 1892px;
+                    position: absolute;
+                    background: #eff2f8;
+                    border-radius: 17px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                "
+            ></div>
+            <div
+                style="
+                    left: 126px;
+                    top: 690px;
+                    position: absolute;
+                    color: black;
+                    font-size: 25px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                Sources to learn DSA
+            </div>
+            <div
+                style="
+                    left: 126px;
+                    top: 128px;
+                    position: absolute;
+                    color: black;
+                    font-size: 25px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                Complete Roadmap To Learn DSA From Scratch
+            </div>
+            <div
+                style="
+                    width: 1263px;
+                    left: 115px;
+                    top: 195px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                Today’s world is highly reliable on data and their appropriate
+                management through widely used apps and software. The backbone
+                for appropriate management of data is Data Structure and
+                Algorithms (for convenience here we will use the term DSA). It
+                is a dream for many to achieve expertise in handling and
+                creating these apps and software. With this target in mind, they
+                set out on the journey of learning DSA. The very first step in
+                the journey is the creation of a complete roadmap to learn data
+                structure and algorithms.
+            </div>
+            <div
+                style="
+                    width: 1209px;
+                    height: 296px;
+                    left: 106px;
+                    top: 366px;
+                    position: absolute;
+                "
+            >
+                <div
+                    style="
+                        width: 727px;
+                        height: 53px;
+                        left: 0px;
+                        top: 0px;
+                        position: absolute;
+                        background: #eff2f8;
+                        border-radius: 17px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                ></div>
+                <div
+                    style="
+                        width: 769px;
+                        left: 9px;
+                        top: 70px;
+                        position: absolute;
+                    "
+                >
+                    <span
+                        style="
+                            color: black;
+                            font-size: 20px;
+                            font-family: Inter;
+                            font-weight: 400;
+                            word-wrap: break-word;
+                        "
+                        >The first and foremost thing is dividing the total
+                        procedure into little pieces which need to be done
+                        sequentially.<br />The complete process to learn DSA
+                        from scratch can be broken into 5 parts:<br /></span
+                    ><span
+                        style="
+                            color: black;
+                            font-size: 20px;
+                            font-family: Inter;
+                            font-weight: 400;
+                            word-wrap: break-word;
+                        "
+                        >1. Learn a programming language of your choice<br />2.
+                        Learn about Time and Space complexities<br />3. Learn
+                        the basics of individual Data Structures and
+                        Algorithms<br />4. Practice, Practice, and Practice
+                        more<br />5. Compete and Become a Pro</span
+                    >
+                </div>
+                <div
+                    style="
+                        left: 20px;
+                        top: 11px;
+                        position: absolute;
+                        color: black;
+                        font-size: 25px;
+                        font-family: Inter;
+                        font-weight: 400;
+                        word-wrap: break-word;
+                    "
+                >
+                    5 Steps to learn DSA from scratch
+                </div>
+                <img
+                    style="
+                        width: 322px;
+                        height: 259px;
+                        left: 887px;
+                        top: 37px;
+                        position: absolute;
+                        border-radius: 30px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="https://media.geeksforgeeks.org/wp-content/uploads/20220602151616/5StepstolearnDSA-660x495.jpg"
+                />
+            </div>
+            <div style="left: 150px; top: 314px; position: absolute">
+                <span
+                    style="
+                        color: black;
+                        font-size: 20px;
+                        font-family: Inter;
+                        font-weight: 400;
+                        text-decoration: underline;
+                        word-wrap: break-word;
+                    "
+                    >Click Here</span
+                ><span
+                    style="
+                        color: black;
+                        font-size: 20px;
+                        font-family: Inter;
+                        font-weight: 400;
+                        word-wrap: break-word;
+                    "
+                >
+                    for the Complete RoadMap</span
+                >
+            </div>
+            <a href="https://takeuforward.org/" target="_blank">
+                <img
+                    style="
+                        width: 248px;
+                        height: 194px;
+                        left: 178px;
+                        top: 822px;
+                        position: absolute;
+                        border-radius: 31px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="data:image/png;base64,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"
+            /></a>
+            <a
+                href="https://www.apnacollege.in/course/alpha-plus"
+                target="_blank"
+                ><img
+                    style="
+                        width: 248px;
+                        height: 194px;
+                        left: 178px;
+                        top: 1091px;
+                        position: absolute;
+                        border-radius: 31px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="https://lwfiles.mycourse.app/62a6cd5e1e9e2fbf212d608d-public/6efdd5e7f0d663cf231d0f2040be0a1e.png"
+            /></a>
+
+            <div
+                style="
+                    left: 140px;
+                    top: 781px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                TakeUForward
+            </div>
+            <div
+                style="
+                    width: 826px;
+                    height: 195px;
+                    left: 500px;
+                    top: 822px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                The takeUforward DSA course is a comprehensive course that
+                teaches you data structures and algorithms (DSA) from A to Z. It
+                is designed for people who want to learn DSA from scratch, as
+                well as for people who want to improve their DSA skills. The
+                course includes over 450 modules, covering a wide range of
+                topics, such as arrays, linked lists, stacks, queues, trees,
+                graphs, and recursion. The course also includes in-depth video
+                solutions covering brute, better, and optimal solutions.<br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            <div
+                style="
+                    width: 826px;
+                    height: 195px;
+                    left: 500px;
+                    top: 1369px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                The GeeksforGeeks (GFG) Data Structures and Algorithms (DSA)
+                course is a comprehensive and well-structured course that covers
+                a wide range of DSA topics, from basic concepts to advanced
+                algorithms. The course is designed for both beginners and
+                experienced programmers who want to improve their DSA skills.
+                The course material is presented in a clear and concise manner,
+                with plenty of examples and practice problems. The course also
+                includes video lectures and interactive coding exercises. The
+                GFG DSA course is a popular choice among programmers of all
+                levels, and it has been praised for its quality and
+                effectiveness.<br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            <div
+                style="
+                    width: 826px;
+                    height: 195px;
+                    left: 500px;
+                    top: 1637px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                The Anuj Bhaiya DSA course is a comprehensive and
+                well-structured course that covers a wide range of Data
+                Structures and Algorithms (DSA) topics, from basic concepts to
+                advanced algorithms. The course is designed for both beginners
+                and experienced programmers who want to improve their DSA
+                skills. The course material is presented in a clear and concise
+                manner, with plenty of examples and practice problems. The
+                course also includes video lectures and interactive coding
+                exercises. The Anuj Bhaiya DSA course is a popular choice among
+                programmers of all levels, and it has been praised for its
+                quality and effectiveness.<br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            <div
+                style="
+                    width: 826px;
+                    height: 195px;
+                    left: 500px;
+                    top: 1090px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                Apna College offers two comprehensive data structures and
+                algorithms (DSA) courses: Alpha Ready and Alpha Plus. Alpha
+                Ready is a self-paced course suitable for beginners, covering
+                fundamentals like arrays, linked lists, stacks, queues, trees,
+                and graphs. Alpha Plus caters to intermediate and advanced
+                programmers, delving into advanced topics like recursion,
+                dynamic programming, and graph algorithms. Both courses are
+                well-received for their thorough curriculum, clear explanations,
+                and supportive teaching assistants. The choice between the two
+                depends on your programming level and learning preferences.<br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+            <div
+                style="
+                    left: 140px;
+                    top: 1041px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                Apna College
+            </div>
+            <a
+                href="https://www.geeksforgeeks.org/courses/dsa-self-paced"
+                target="_blank"
+                ><img
+                    style="
+                        width: 248px;
+                        height: 194px;
+                        left: 172px;
+                        top: 1370px;
+                        position: absolute;
+                        border-radius: 31px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="C:\Users\Parvathi\OneDrive\Documents\MAJOR PROJECT\FRONTEND\LANDING\assets\img\gfg_dsa.png"
+            /></a>
+
+            <div
+                style="
+                    left: 140px;
+                    top: 1318px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                GFG DSA Cource
+            </div>
+            <a
+                href="https://www.youtube.com/playlist?list=PLUcsbZa0qzu3yNzzAxgvSgRobdUUJvz7p"
+                target="_blank"
+                ><img
+                    style="
+                        width: 248px;
+                        height: 194px;
+                        left: 172px;
+                        top: 1644px;
+                        position: absolute;
+                        border-radius: 31px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="https://yt3.googleusercontent.com/ytc/APkrFKZUWKqafL5x24ulun2XXMwEeCpTL1xmlSU7kT92=s900-c-k-c0x00ffffff-no-rj"
+            /></a>
+
+            <div
+                style="
+                    left: 140px;
+                    top: 1592px;
+                    position: absolute;
+                    color: black;
+                    font-size: 20px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                Anju Bhaiya
+            </div>
+            <div
+                style="
+                    left: 172px;
+                    top: 1906px;
+                    position: absolute;
+                    color: black;
+                    font-size: 24px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                Platforms
+            </div>
+            <a href="https://leetcode.com/" target="_blank"
+                ><img
+                    style="
+                        width: 239px;
+                        height: 185px;
+                        left: 172px;
+                        top: 2021px;
+                        position: absolute;
+                        border-radius: 36px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="https://miro.medium.com/v2/resize:fit:1200/0*Cddm__x7oXoY0N9p.png"
+            /></a>
+
+            <a href="https://www.codechef.com/" target="_blank"
+                ><img
+                    style="
+                        width: 239px;
+                        height: 185px;
+                        left: 470px;
+                        top: 2021px;
+                        position: absolute;
+                        border-radius: 36px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/zruiknbedz8yqafxbazb"
+            /></a>
+
+            <a href="https://www.geeksforgeeks.org/" target="_blank"
+                ><img
+                    style="
+                        width: 239px;
+                        height: 185px;
+                        left: 768px;
+                        top: 2021px;
+                        position: absolute;
+                        border-radius: 36px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBQVFRYWFhISGRUZGBoaHRkUGRgZGBwdGRkZGhwZHhgcIS4lHB4sIRocJzgnKzAxNjdDHSc9QDs0Py41NTEBDAwMEA8QHhISHjosJSs0NTQ0MTQ2PzQ0NDQ0NDY0NDQ0NjQ0NDY0NDQ0NDQ0NDQ0NDQ0NDQ0NDQxNDQ0NDQ0NP/AABEIALwBDAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABgcDBAUBAv/EAEEQAAIBAwIDBAYHBgUEAwAAAAECAAMEEQUhBhIxE0FRYSIyUnGBkQcUFRaSodFCVGJyk7EjU6KywTPC0vAkY3T/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQIDBAX/xAAkEQEBAAIBBAIDAQEBAAAAAAAAAQIRAxIhMVEEExQiQWGxgf/aAAwDAQACEQMRAD8AuaIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIifDuAMkgAd5gfUSMajxnbUjhS1Rv/rA5fxHAPwzOHV+kGoT6FugH8TFj+QErc8Z/WOXNhj2tWGIlc0/pArD1qFIj+FmX8zmdex48oMQKiPT8/WX5rv+UicmN/pOfjvbaYRMFtcpUUMjq6noykEfMTPLtiIiB5ETjarxFb2+Q9QFvYX0m+IHT44kWyeUZZTGbrsxIFc/SD/l2+3i7YP4VB/vNQcf1/8AJo/6v1lfsxY35PH7WREg1p9IKnapQZfNGDfkcSU6ZrFC4GaVRW8R0Ye9TuJMyl8L48uOXiujERLNCIiAiIgIiICIiAiIgIiICIiAiIgaWp36UKbVHOFX5k9wA7yZVuvcRVrkkElKXcinb3sf2j+Uta8tUqKUdQykYIMqziPh17dwFDPTc4VgMnJ6IQP2vDx/KZcvVrs5Pk9eu3hw55mT3QuBxgPckluvZqdh/MR1PkNvfJja2NKmMU6SKP4VC/2EpjxW+WOHxsspu9lI5nsvKrQVhhlVh4EAj5GRjWOC6FQE0gKT93L6h8ivd71x8ZN4r/E5fEsn63aAaZqdWg3NTcr4r1VvJl7/AO8tDh7X6d0mR6NRccyHqPMeK+cqu/s3ou1OovKy/IjuYHvB8Z9adfPQqLUQ+kp6dzDvU+Rlccrje6nFzZceWr4XbPlmAGTNXTbxa1Nai+qwyPEeIPmDkfCRHj7Wyo+rocEjLkeyeifHqfLHjN7lJNu/PkmOPU1OJeMGctTtyVUbGoNmb+U9y+fU+XfDSfmZ5JNw1wo9wA7kpR7ses38uei+Z+HjOf8AbOvOtz5skZJjPyly6folvRA5KKA+0Rlj72bedHlHhLzh/wBbz4d13qiZko1WVgysysNwykgj3ES2NT4ZtqwOaYVvap4Vs+JwMH4gyvdc4dq2zgYLoxwrKDuT0Ur3Hy7+6VywuPdjycGeHeeEr4V4s7UijXIFQ7K3QN5EdA35H+8zkT4S4ZFACrVANYjYbEID3DxbxPwHeTLJvjvXd38PV0/t5exESzUiIgIiICIiAiIgIiICIiB5ETk6xr1G2KiqzAsCRhSfVxnp7xIt0i2SbrrTwiRv77Wftv8Agaeffez9t/wNI6p7U+3D3EmiRn772ftv+Bo++9n7b/gaOrH2fbh7iTRIz997P23/AANH33s/bf8AA0dU9n24e4++MNGFeiWUf4tMFlI6kftL8R+YEqqWieNrP2n/AANK1vSpqOU9QuxXbHoliV27tpjyaveOP5PTdZSpl9H+qcq16bn0VHajyA2b4bKfiZDb26aq71G9Z2LHyydh8BgfCfdjdGnz4/bpvTOPBwP0mtKXLeMjHLkuWMx9OxwrpP1muFYf4ajmbzA6L8T+WZbaKAAAAABgAdJXPButW9sj9ozB3YdFLeiq7bjzLSSffez9t/wNNeO4zHy6/j3DHHvZupNEjP33s/bf8DR997P23/A006p7b/bh7iTTzAka++9n7b/gaPvvZ+2/4Gjqx9n24e4k0SM/fez9t/wNB43s/bqfgaOqez7cPcSeJjpuGAYdCAR7jvMks0IiICIiAiIgIiICIiAiIgeSA/SYm9Bu7FQf7CP+ZPpGOPLE1LYsB6VNg/w3VvyOfhK5zeNZc2PVhYq+eT2TfgSpQqK1GpSotUUllLKpZlPUZI3IP5EeE5sceq6ebx4deXTvSD5iXT9j237vQ/pp+kfY9v8Au9D+mn6TT6b7dH4d9qWiXT9j2/7vQ/pp+kfY9v8Au9D+mn6R9V9n4d9qWnss7ij6tb0WYUKHO3ooORM8x7+nQdfl4ysJnnj03TDl4+i63t7El3A+jLWFZ6ihlxyLzAHBIyxGehA5d/ORW4oMjOjesjFT71OJFxskqMuOzGZX+sUTscL3dKnXArKjU3HKedVYKSdm36b7HyPlLRGj2/7vQ/pp+kvjh1Ty04uDrm5VLRLp+x7f93of00/SPse3/d6H9NP0lvqvtp+HfalozLp+x7b93of00/SY7jTrVFLNQtwqgkkomAB1PSPp/wBPxL7U1Bm1qdytWq7qqqjH0VACgKNhsO/AyffNrhuyNa5pLjYMHb+VfSOffgD4zPW7pzTHeXTFv2ycqKvgoHyAEywInW9ePYiISREQEREBERAREQEREBMdWmGBBAIIwQe8HqJkiBTnEWkNbVmTB5DlkbxXwz4jofn3zm0K7IysrFWU5DDqDLi1vSadzTKOPMMPWU+I/TvlVaxo9W2bldfRJ9Fh6re49x8jvObPG43cebzcNwy6p4/4nOg8ZUqgCVitOp0ydkbzBPqnyPzMlauCMggiUXMtvc1E9So6fyOy/wC0y05bPK2Hy7JrKbXjmcHWeKKFuCOYO/sIQTn+I9FHv38jKvrahWcYetVYeDu7D5EzWk3l9RbL5e5+sb2r6pUuHLufJVHqqPAD/nvmvaWz1XVEXLucAf8AJ8AOpPlPbO0eqwSmjOx7l/uT0A8zLO4Y4cW2XmbDVmHpMOij2V8vE9+PhM8cblWPHx5cuW74/tdPRtOW3opSXflG58SdyfiZDeP9GKt9YQeicBwO49Fb3HYH3DxlhTFWpK6lWAKkEEEZBB6gidFxlmnfnxTLHpUZJhwzxeaQWlX5mQbCoN2UeDDqw8xv75q8TcKvbkvTDPR6+LJ5N4r/ABfPxMZnPvLCvP3lw5LvtLynUUNTqIw8VIP9ukz5lGU3ZTlWZT4qSD8xNltUuCMG4uMeBqP+s0nN/jonzJrvFu6jqtGgualRV8Adyfco3MrfibiZrn0FBWiD6p9ZiOhOO7wH/oj7HJydye89fnAlMuS5dmPJ8jLOanaPJZXAuimjTNVxipUAwD1VOoHkT1PwnN4V4SbK1rhcAbrTPXPczj/t+fhJ+BL8eFnet/j8Nn7Zf+PqIibOwiIgIiICIiAiIgIiICInG1ziS0swDcV0TIyF3ZyM4yEUFiPPGIHZiRrRuN9Pun5KVypc9FdWRm8l5wOY7dBmSSEbJhubdHUq6KynqrAEH4GZogs2hmo8B0mOaNRqZ9k+mvwyQw+ZnDrcDXYPomiw8mIPyK/8yz5y73W6FKvRt3citW5uRQrEHlBJywGB075S8eNY5fH48u+kBpcEXh6ikv8AM3/iDOtZfR+NjWrE/wANIY/1n9BJ5GInHjCfG45/GjpumUqC8tNFUd+NyfMsdz8ZvROBX4uskuFtjcL27OECKrt6ROApZVKqfIkS8nptJJ2iQREQl8kSN6rwdb1iWUGmx3ymME+anb5Yklmjqep0bdC9aqlNOmXOMnwHeT5DeRZL5UyxxyneIFc8BXCn0HpMPMsjfLBH5zWXgu89imPe/wCkk1n9IumVW5Fu1BPQ1EqU1/E6gD4kSWK2dwdpW8WLH8bjvhXlnwBVP/UrIo8EBY/M4A/OSrSOGre3wVQs/tv6TfDuX4ATtxEwxnhpjw4Y+ICexOTr2u0LKmKtdyqFgmVVmPMQSBhQT0Uy7V1oiICIiAiIgIiICIiAiIgat/cilTeoeiIzn3KpY/2kG+j7Q1uE+0bpVq3NdmZS4DLTQMVUIp2HQ4PUAgeOZ5d0BUR0b1XVlPuYEH8jK74T15dNH2ffN2ZRm7GswPZ1EZi2eb9nBJ67DocEbzPHZF893Y4hXRqrhLqpZrVpup3qIlQEENgkENg7ZB/vgzpajxXa0rZroVlqUgeUdiQ/M/8Alrg+t8dup2EiPFWraS3N2Fva3d9W9FBTRahLkYDO46422zk47hkjncQ8MVbXS7MN2hNCuKtwaJHOgfPM6nplNlDdO87ZkyeNo36SBuO7qmBVuNJr07Y4/wAQOHdQehelygr8SPDczva9xZQtqCV8moKuOyWlu1QsAV5fLBG/mO8gGAX507seZte1SqtQcvZLWDuwbYq1LkyOvRgJ7xdoot6emP2l4ttR50aoOUXNHtSGRjyjCkersP2QOpEnURupEOO69Eq19ptW2oOQBVDioqE9OcBRyj8/IzHxQ4OsaUQQQVqnI6Y5G3nB1G305kVG1vVLntSFFKlWWsWJOQCnIQNwNj3zNxponNdaZZpVqL/8epSWoSC45UwC3LjOQMNjGQTEk2i26S2y4tNzdtQtaIqUae1W4ZytNT7KAKec7eI+W81b3jOu1etQsrBrk0CBVY1VpKGOdlDA824YeOVOxG80uANVFsfsy4pJQuEyVK7JXU5POrftMQPjjuIKjnal9nvd3LUtQr6fdo3K5Y9nTqMAPT5GI5x5ZGc5wc5Mam1t3SXUuILirafWKNhWNfIH1eseyb1gGIdwAVxuDjfykD+jmvcc9QrpyVVe7Pa12dA1EkqxXBGX5eYtkd7SYfRxrVe6t6jVmDmnWamtVV5RUVQvpYwBnfuA7u8GaH0R/wDRvf8A9tT/AGU48SnnTY1Tjt+3e3srKpdvSOKjK3KiEEgrzBWycgjfG4OM4m9w3xkl2tVTSejcUQS9GpnIwOobAJGdjkAjI23GYnwPrVHTmurS8bsqors4dgxDqVVQeYZ9nmGdjzeOZl0e6F7qlxd0Fb6vTtTSaoVKioxG2x3zjfB3wq5xkRpG66XDnHle9aktLT2ILgVqnOezpKTthuT025fSxtjI8cjW0mwTU9Quq9wOeha1Db0aTbpzKSHZkOxyQDv1yM+qJvfQ8gGmocDJqVCfM5A/sAPhNH679kX1wayt9Su37RaqgsKdUkllYDfck/ALgbNh/bIfybSPiJdLCihdtaIGXKrUKIwHTmQ7FSN9xiZdG1XT6dApQuaDUbamObkqB+RFB3Ygk9xnE4i4g0R17Ws1rcMq4VVVatTrnkA/ZyfawJwdM4Wrtp1/VFAUq13ytTt1HLyU6bc60+XbDMMjH8ucEkRrt3Tv07S8d3VQGrb6TXqWoJ/xC4R2A6lafKSfgT8O7v2fFtrUsze85WioPNzD0lYEAoVH7WSAAOuRjrK70ZrE26u+ualQZEAagK/IyFRgotPkyVHQco/OZ7zQFbSK72jXlRKlVK5FwFD1FXZnVVUEgj0skEnkyM7ZmyIlruff275O3+x7j6pjm7TtF5+T2+y5enfnOMb5xvNL6VNRp3Gl0a1JuZHroQeh9SqCCO4gggjynOStp5oCsdf1QDlz2f1gdoNvV7PkyfDPTzxMfFmm0rfRqK0jcGm1ytRRcBVcB6dTblUDlBxkAjPpRJJYi22VONd4tNO4p2ltRFzdMfSQNypSXG7VHAPKdwcY6HxKhvOIOKqlCtTtaFqbi7dOc01cU0Vdxkuw8Vbw6bkZAMb0Jvse7ejcgGjctzJeNnmLZ9Sqx6bkk+BJbox5d7jb7Pe7pJXr3FrcimWS6pns15cnCGodjuWPdjcZHNgxqbW32SHhrXq1waiV7KtbVaeOYN6dNub2KoAVjjBIHiOskUrzgbW67Xle1a7W8oU6YdbgKAQSVAQsuzZy2+T6h37hYci+Uzw9iIkJIiICIiAiIgJqX1hRrry1aVOovs1FV19+GE24gc3TtEtrck0bajTJ6mmiqT5EgZM6BUHqJ9RA5Ftw7Z06napaW6VM551pqGye8EDY+6dKpTVgVKgqRgggEEeBB6iZYgcmw0C0oMXpWtvTY7c1Omitg92QNh5TZr6bRqVEqvSRqtPPI5ALLnrg92ZuRA59/o9CuyNVo03amcozKCynIOVbqpyAdvATHqOg2twQ1a1oVGAwGqU1ZseGSM48p1YhGmGhQRFCIioqjAVQAoHgANhNfT9Oo0Awo0qdMMxdggABY4BY46nYb+U3ohLm6lottcY7e3o1cdO0RWI9xIyJsW9lTpoKaU0RAMBUUKoB64UbTaiBp6fp1Kggp0aaU0BJCoAqgnqcCZ61FWUqyhlIwVYAgjwIOxmWIHHs+GrKkwenZ2yOOjLSQMPcQNvhOxEQOTdcO2dR+0qWds9TOedqaFiR0JJG5986gUDun1EDkfd2z7Ttfqdt2mc8/ZpzZ9rOOvn1mzqWmUbhQleklRAeblcBhkAgHB78E/ObsQNS/wBPpV05K1NKiEg8rqGXI3Bwe+YLjRLZ6a0nt6L0kwFRlVlUDYcoPq4G206cQNLT9No0F5KNKnTXOeWmioCfE4G585uxEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERED//2Q=="
+            /></a>
+
+            <a href="https://www.hackerrank.com/" target="_blank">
+                <img
+                    style="
+                        width: 239px;
+                        height: 185px;
+                        left: 1066px;
+                        top: 2021px;
+                        position: absolute;
+                        border-radius: 36px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    "
+                    src="https://camo.githubusercontent.com/898f94be504f7baf1ddb0a2811152dab61cfd723e683b6947be9ffa3c879ccc4/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f362f36352f4861636b657252616e6b5f6c6f676f2e706e67"
+                />
+            </a>
+
+            <div
+                style="
+                    left: 227px;
+                    top: 1983px;
+                    position: absolute;
+                    color: black;
+                    font-size: 24px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                Leetcode
+            </div>
+            <div
+                style="
+                    left: 536px;
+                    top: 1983px;
+                    position: absolute;
+                    color: black;
+                    font-size: 24px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                CodeChef
+            </div>
+            <div
+                style="
+                    left: 798px;
+                    top: 1983px;
+                    position: absolute;
+                    color: black;
+                    font-size: 24px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                GeeksForGeeks
+            </div>
+            <div
+                style="
+                    left: 1117px;
+                    top: 1983px;
+                    position: absolute;
+                    color: black;
+                    font-size: 24px;
+                    font-family: Inter;
+                    font-weight: 400;
+                    word-wrap: break-word;
+                "
+            >
+                HackerRank
+            </div>
+        </div>
+
+        <a
+            href="#"
+            class="back-to-top d-flex align-items-center justify-content-center"
+            ><i class="bi bi-arrow-up-short"></i
+        ></a>
+
+        <!-- Vendor JS Files -->
+        <script src="/images/assets/vendor/aos/aos.js"></script>
+        <script src="/images/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/images/assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="/images/assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/images/assets/vendor/php-email-form/validate.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="/images/assets/js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/images/GPREC.png" rel="icon" />
+        <title>Thank You</title>
+
+        <style>
+            body {
+                background-image: url("/funky-tone-memphis-blog-banner-template-vector_53876-165920-transformed.jpeg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .thank-you-container {
+                text-align: center;
+                background-color: rgba(255, 255, 255, 0);
+                max-width: 800px;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 2px;
+            }
+
+            h1 {
+                color: #333;
+                font-size: 70px;
+            }
+
+            p {
+                color: #222222;
+                font-size: 20px;
+            }
+
+            .home-button {
+                background-color: #fffbeb00;
+                color: black;
+                border: 2px solid black;
+                padding: 15px 30px;
+                border-radius: 30px;
+                cursor: pointer;
+                display: block;
+
+                font-size: 20px;
+                transition: background-color 0.3s;
+                text-decoration: none;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+
+            .home-button:hover {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="thank-you-container">
+            <h1>
+                <b>Thank You for Taking the Quiz!</b>
+            </h1>
+            <p><b>Your quiz submission has been received.</b></p>
+            <a th:href="@{/user-page/hello}" class="home-button">Go To Home</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        <title>GPREC QUIZ</title>
+        <meta content="" name="description" />
+        <meta content="" name="keywords" />
+
+        <!-- Favicons -->
+        <link href="/images/GPREC.png" rel="icon" />
+        <link
+            href="/images/assets/img/apple-touch-icon.png"
+            rel="apple-touch-icon"
+        />
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+
+        <!-- Vendor CSS Files -->
+        <link href="/images/assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link
+            href="/images/assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/boxicons/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/glightbox/css/glightbox.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/swiper/swiper-bundle.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- Template Main CSS File 
+        <link href="/style.css" rel="stylesheet" /> -->
+        <link href="/user_home.css" rel="stylesheet" />
+    </head>
+    <!-- Vendor JS Files -->
+    <script src="images/assets/vendor/aos/aos.js"></script>
+    <script src="images/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="images/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="images/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="images/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="images/assets/js/main.js"></script>
+
+    <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top header-transparent">
+            <div
+                class="container d-flex align-items-center justify-content-between"
+            >
+                <div class="logo">
+                    <!--<h1><a href="index.html">GPREC QUIZ</a></h1>-->
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a th:href="@{/user-page/hello}"
+                        ><img src="/images/logo.png" alt="" class="img-fluid"
+                    /></a>
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a
+                                class="nav-link scrollto"
+                                th:href="@{/user-page/hello}"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="nav-link scrollto"
+                                th:href="@{/user-page/user_quiz}"
+                                >Quiz</a
+                            >
+                        </li>
+                        <li>
+                            <a class="getstarted scrollto" 
+                            id="lastbutton"
+                            th:href="@{/logout}"
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <!-- End Header -->
+        <div class="home-body">
+            <div class="home-container">
+                <div class="box details">
+                    <h3>Profile</h3>
+                    <p><b>Name:</b> [[${user.getFullname()}]]</p>
+                    <p>
+                        <b>Branch & Section:</b> CSE - [[${user.getSection()}]]
+                    </p>
+                    <p><b>Email Id:</b> [[${user.getUsername()}]]</p>
+                </div>
+                <div class="box notice">
+                    <h3>Notice Board</h3>
+                    <ol>
+                        <li
+                            th:each="update, iterStat : ${updates}"
+                            th:if="${iterStat.index >= 0 and iterStat.index < 5}"
+                            th:text="${updates[updates.size()-iterStat.index-1].updates}"
+                        ></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="additional-text">
+                <h1 style="color: black">RESOURCES</h1>
+                <h2>Data Structures and Algorithms (DSA)</h2>
+                <p>
+                    Data structures provide efficient organization and retrieval
+                    of data, optimizing software performance and enabling
+                    streamlined problem-solving in computer science and software
+                    development.
+                </p>
+            </div>
+            <div class="scrolling-wrapper">
+                <div class="image-container">
+                    <img
+                        class="image"
+                        src="/img/11.png"
+                        alt="Image 1"
+                        onclick="window.location.href='https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/';"
+                    />
+                    <img
+                        class="image"
+                        src="/img/12.png"
+                        alt="Image 2"
+                        onclick="window.location.href='https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/';"
+                    />
+                    <img
+                        class="image"
+                        src="/img/13.png"
+                        alt="Image 3"
+                        onclick="window.location.href='https://leetcode.com/';"
+                    />
+                    <img
+                        class="image"
+                        src="/img/14.png"
+                        alt="Image 4"
+                        onclick="window.location.href='https://youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ&si=ZwwmDWyPwajp1PIF';"
+                    />
+                    <img
+                        class="image"
+                        src="/img/15.png"
+                        alt="Image 5"
+                        onclick="window.location.href='https://youtube.com/playlist?list=PLUcsbZa0qzu3yNzzAxgvSgRobdUUJvz7p&si=7gPHb26enPstTt2K';"
+                    />
+                </div>
+            </div>
+            <div class="additional-text">
+                <h2>Web Development</h2>
+                <p>
+                    Web development facilitates the creation of interactive and
+                    accessible online platforms, empowering businesses and
+                    individuals to connect, communicate, and transact globally
+                    in the digital age. It enables the dissemination of
+                    information, services, and products across diverse
+                    audiences, shaping modern communication and commerce
+                    landscapes.
+                </p>
+            </div>
+            <div class="scrolling-wrapper">
+                <div class="image-container">
+                    <img
+                        class="image"
+                        src="/img/HTML.jpeg"
+                        alt="Image 1"
+                        onclick="window.location.href='https://www.w3schools.com/html/';"
+                    />
+                    <img
+                        class="image"
+                        src="/img/CSS.jpeg"
+                        alt="Image 2"
+                        onclick="window.location.href='https://www.w3schools.com/css/';"
+                    />
+                    <img
+                        class="image"
+                        src="/img/JS.jpeg"
+                        alt="Image 3"
+                        onclick="window.location.href='https://www.w3schools.com/js/';"
+                    />
+                    <img
+                        class="image"
+                        src="/img/SQL.jpeg"
+                        alt="Image 4"
+                        onclick="window.location.href='https://www.w3schools.com/sql/';"
+                    />
+                    <img
+                        class="image"
+                        src="/img/GIT.jpeg"
+                        alt="Image 5"
+                        onclick="window.location.href='https://www.w3schools.com/git/';"
+                    />
+                </div>
+            </div>
+            <div class="additional-text">
+                <h2>Graduate Aptitude Test in Engineering (GATE)</h2>
+                <p>
+                    The GATE exam serves as a crucial gateway for admissions
+                    into prestigious postgraduate programs and unlocks
+                    opportunities for career advancement in various fields of
+                    engineering and technology. It evaluates candidates'
+                    aptitude and knowledge, setting a standard for excellence in
+                    academia and industry.
+                </p>
+            </div>
+            <div class="scrolling-wrapper">
+                <div class="image-container">
+                    <img
+                        class="image"
+                        src="https://resize.indiatvnews.com/en/resize/newbucket/400_-/2023/09/gate-2024-1695901911.jpg"
+                        alt="Image 1"
+                    />
+                    <img
+                        class="image"
+                        src="https://resize.indiatvnews.com/en/resize/newbucket/400_-/2023/09/gate-2024-1695901911.jpg"
+                        alt="Image 2"
+                    />
+                    <img
+                        class="image"
+                        src="https://resize.indiatvnews.com/en/resize/newbucket/400_-/2023/09/gate-2024-1695901911.jpg"
+                        alt="Image 3"
+                    />
+                    <img
+                        class="image"
+                        src="https://resize.indiatvnews.com/en/resize/newbucket/400_-/2023/09/gate-2024-1695901911.jpg"
+                        alt="Image 4"
+                    />
+                    <img
+                        class="image"
+                        src="https://resize.indiatvnews.com/en/resize/newbucket/400_-/2023/09/gate-2024-1695901911.jpg"
+                        alt="Image 5"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 footer-contact">
+                            <h3>GPREC</h3>
+                            <p>
+                                G Pulla Reddy Nagar <br />
+                                Nandyal Road, Kurnool, 518007<br />
+                                <strong>Phone:</strong> +91 08518-270957<br />
+                                <strong>Email:</strong> info@gprec.ac.in<br />
+                            </p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Useful Links</h4>
+                            <ul>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a
+                                        class="nav-link scrollto active"
+                                        href="#hero"
+                                        >Home</a
+                                    >
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a
+                                        class="nav-link scrollto active"
+                                        href="#features"
+                                        >Features</a
+                                    >
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a
+                                        class="nav-link scrollto active"
+                                        href="#about"
+                                        >About us</a
+                                    >
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a
+                                        class="nav-link scrollto active"
+                                        href="#contact"
+                                        >Contact</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Courses</h4>
+                            <ul>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">CIV</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">EEE</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">ECE</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">MEC</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">CSE</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Our Social Networks</h4>
+
+                            <div class="social-links mt-3">
+                                <a
+                                    href="https://twitter.com/GPRECK"
+                                    class="twitter"
+                                    target="_blank"
+                                    ><i class="bx bxl-twitter"></i
+                                ></a>
+                                <a
+                                    href="https://www.facebook.com/GPREC.Kurnool"
+                                    class="facebook"
+                                    target="_blank"
+                                    ><i class="bx bxl-facebook"></i
+                                ></a>
+                                <a href="#" class="instagram"
+                                    ><i class="bx bxl-instagram"></i
+                                ></a>
+                                <a href="#" class="google-plus"
+                                    ><i class="bx bxl-skype"></i
+                                ></a>
+                                <a
+                                    href="https://www.linkedin.com/school/g.-pulla-reddy-engineering-college/"
+                                    class="linkedin"
+                                    target="_blank"
+                                    ><i class="bx bxl-linkedin"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <a
+            href="#"
+            class="back-to-top d-flex align-items-center justify-content-center"
+            ><i class="bi bi-arrow-up-short"></i
+        ></a>
+
+        <!-- Vendor JS Files -->
+        <script src="/images/assets/vendor/aos/aos.js"></script>
+        <script src="/images/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/images/assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="/images/assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/images/assets/vendor/php-email-form/validate.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="/images/assets/js/main.js"></script>
+    </body>
+</html>

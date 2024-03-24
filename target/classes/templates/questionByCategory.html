@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quiz</title>
+    <link href="/images/GPREC.png" rel="icon" />
+    <style>
+        /* Reset some default styles and set a basic font family */
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #ECF9FF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            
+            min-height: 100vh;
+        }
+
+        #quiz-container {
+            background-color: #FFFBEB;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            width: 600px; /* Fixed width of 600 pixels */
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #FFE7CC;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timer-box {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fffbeb;
+            color: black;
+            border: 2px solid black;
+            font-size: 24px;
+            border-radius: 30px;
+        }
+
+        .options {
+            margin-bottom: 10px;
+        }
+
+        
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        #timer {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #submit-btn {
+            background-color: #fffbeb;
+            color: black;
+            border: 2px solid black;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #submit-btn:hover {
+            background-color: black;
+            color: white;
+        }
+ 
+    </style>
+</head>
+<body>
+   <!-- <center><h1>Quiz: <span th:text="${categoryName}"></span></h1></center>  -->
+    <form id="quiz-form" method="post" action="/category/submit_answers">
+    <div id="quiz-container">
+<div id="timer">
+	<div class="timer-box" id="countdown">1:00</div>
+</div>    
+        <div th:each="question, rowStat : ${questions}" class="question">
+            <p class="question-title" th:text="${(rowStat.index+1)+'. '+question.questionTitle}"></p>
+            <div class="options">
+            
+                <input type="radio" th:name="${question.id}" th:value="${question.option1}">
+                <label th:text="${question.option1}"></label><br>
+                
+                <input type="radio" th:name="${question.id}" th:value="${question.option2}">
+                <label th:text="${question.option2}"></label><br>
+                
+                <input type="radio" th:name="${question.id}" th:value="${question.option3}">
+                <label th:text="${question.option3}"></label><br>
+                
+                <input type="radio" th:name="${question.id}" th:value="${question.option4}">
+                <label th:text="${question.option4}"></label><br>
+                
+            </div>
+        </div>
+                <button onclick="sub()" type="submit" id="submit-btn" >Submit</button>
+    </div>
+    </form>
+</body>
+
+
+<script>
+	
+    var timer = 60 // 1 minute
+    var interval = setInterval(function () {
+        var minutes = Math.floor(timer / 60);
+        var seconds = timer % 60;
+
+        document.getElementById('countdown').innerText = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+
+        if (--timer < 0) {
+            clearInterval(interval);
+            document.getElementById('countdown').innerText = '00:00';
+            document.getElementById('quiz-form').submit();
+        }
+    }, 1000);
+
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+    });
+
+    document.addEventListener("selectstart", function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    document.addEventListener("visibilitychange", function() {
+        if (document.hidden) {
+            alert('Switching tabs. Quiz will be submitted.');
+            document.getElementById('quiz-form').submit();
+        }
+    });
+    
+    button.onClick = function() {
+    	alert("Quiz submitted successfully!!");
+    }
+</script>
+
+</html>
+
+

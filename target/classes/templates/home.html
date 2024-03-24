@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/home.css" />
+        <title>GPREC QUIZ APPLICATION</title>
+        <link rel="icon" href="GPREC.png" type="image/x-icon" />
+    </head>
+    <body>
+        <div class="landing-page">
+            <header>
+                <div class="container">
+                    <a
+                        th:href="@{/}"
+                        class="logo"
+                        >GPREC <b>QUIZ APPLICATION</b></a
+                    >
+                    <ul class="links">
+                        <li>
+                            <a
+                                th:href="@{/}"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                th:href="@{/aboutus}"
+                                >About Us</a
+                            >
+                        </li>
+                        <a
+                            th:href="@{/registration}"
+                        >
+                            <li class="button">Login / Sign up</li>
+                        </a>
+                    </ul>
+                </div>
+            </header>
+            <div class="content">
+                <div class="container">
+                    <div class="info">
+                        <h1>Welcome to GPREC Quiz Application!</h1>
+                        <p>
+                            Are you ready to experience a seamless and efficient
+                            way to manage and participate in quizzes at GPREC?
+                            Our state-of-the-art quiz application is designed to
+                            make the learning process more interactive and
+                            engaging. Whether you're a faculty member or a
+                            student, our platform caters to your unique needs,
+                            ensuring an enhanced educational experience.
+                        </p>
+                            <button> <a th:href="@{/login}">Login Here  </a></button>
+                    </div>
+                    <div class="image">
+                        <img src="/images/index_image.gif" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

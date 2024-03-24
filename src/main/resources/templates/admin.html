@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head xmlns:th="http://www.thymeleaf.org">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/images/GPREC.png" rel="icon" />
+
+        <meta content="" name="description" />
+        <meta content="" name="keywords" />
+
+        <title>Admin Dashboard</title>
+        <style>
+            #header {
+                transition: all 0.5s;
+                z-index: 997;
+                transition: all 0.5s;
+                padding: 15px 0;
+                background: rgba(255, 255, 255, 0.95);
+            }
+
+            #header.header-scrolled {
+                background: rgb(255, 255, 255);
+                box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            #header .logo h1 {
+                font-size: 30px;
+                margin: 0;
+                line-height: 1;
+                font-weight: 400;
+                letter-spacing: 2px;
+            }
+
+            #header .logo h1 a,
+            #header .logo h1 a:hover {
+                color: #5777ba;
+                text-decoration: none;
+            }
+
+            #header .logo img {
+                margin: 0;
+                max-height: 40px;
+            }
+
+            /*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+            /**
+* Desktop Navigation 
+*/
+            .navbar {
+                padding: 0;
+                position: relative;
+            }
+
+            .navbar ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                list-style: none;
+                align-items: center;
+            }
+
+            .navbar li {
+                position: relative;
+            }
+
+            .navbar a,
+            .navbar a:focus {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 0 10px 30px;
+                font-family: "Raleway", sans-serif;
+                font-size: 15px;
+                color: #47536e;
+                white-space: nowrap;
+                transition: 0.3s;
+            }
+
+            .navbar a i,
+            .navbar a:focus i {
+                font-size: 12px;
+                line-height: 0;
+                margin-left: 5px;
+            }
+
+            .navbar a:hover,
+            .navbar .active,
+            .navbar .active:focus,
+            .navbar li:hover > a {
+                color: #5777ba;
+            }
+
+            #bu {
+                border-radius: 10px;
+                transition: 1sec;
+            }
+
+            #bu :hover {
+                background-color: black;
+                color: white;
+            }
+
+            .navbar .getstarted,
+            .navbar .getstarted:focus {
+                background: #5777ba;
+                color: #fff;
+                padding: 12px 25px;
+                margin-left: 30px;
+                color: #fff;
+                line-height: 1;
+                border-radius: 50px;
+            }
+
+            .navbar .getstarted:hover,
+            .navbar .getstarted:focus:hover {
+                background: #748ec6;
+                color: #fff;
+            }
+            /**
+rgb(255, 255, 128)rgb(255, 255, 128)* Mobile Navigation 
+*/
+            .mobile-nav-toggle {
+                color: #47536e;
+                font-size: 28px;
+                cursor: pointer;
+                display: none;
+                line-height: 0;
+                transition: 0.5s;
+            }
+
+            .mobile-nav-toggle.bi-x {
+                color: #fff;
+            }
+
+            @media (max-width: 991px) {
+                .mobile-nav-toggle {
+                    display: block;
+                }
+
+                .navbar ul {
+                    display: none;
+                }
+            }
+
+            .navbar-mobile {
+                position: fixed;
+                overflow: hidden;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                background: rgba(51, 60, 79, 0.9);
+                transition: 0.3s;
+                z-index: 999;
+            }
+
+            .navbar-mobile .mobile-nav-toggle {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+
+            .navbar-mobile ul {
+                display: block;
+                position: absolute;
+                top: 55px;
+                right: 15px;
+                bottom: 15px;
+                left: 15px;
+                padding: 10px 0;
+                border-radius: 6px;
+                background-color: #fff;
+                overflow-y: auto;
+                transition: 0.3s;
+            }
+
+            .navbar-mobile a,
+            .navbar-mobile a:focus {
+                padding: 10px 20px;
+                font-size: 15px;
+                color: #47536e;
+            }
+
+            .navbar-mobile a:hover,
+            .navbar-mobile .active,
+            .navbar-mobile li:hover > a {
+                color: #5777ba;
+            }
+
+            .navbar-mobile .getstarted,
+            .navbar-mobile .getstarted:focus {
+                margin: 15px;
+            }
+
+            body {
+                font-family: "Arial", sans-serif;
+                background-color: rgb(146, 146, 146);
+            }
+
+            .container {
+                max-width: 960px;
+                margin: 0 auto;
+                box-sizing: border-box;
+                padding: 0%;
+            }
+
+            .card {
+                background-color: #fff;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+            }
+
+            .samerow {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 87%;
+                margin: 0 auto;
+                margin-top: 1%;
+            }
+
+            .container {
+                width: 48%; /* Adjusted width to make room for margins */
+                box-sizing: border-box;
+                margin-left: 1%; /* Adjust the left margin */
+                margin-right: 1%; /* Adjust the right margin */
+            }
+
+            .samecol {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 30%; /* Adjust the width as per your design */
+                margin-left: 1%; /* Adjust the left margin */
+                margin-right: 1%; /* Adjust the right margin */
+            }
+
+            h2,
+            h3 {
+                font-weight: 10;
+                color: #3498db;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            label {
+                margin-bottom: 5px;
+            }
+
+            input,
+            select {
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid black;
+                border-radius: 5px;
+            }
+
+            button {
+                padding: 10px;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                border-radius: 10px;
+                transition: background-color 0.3s ease;
+                border: 2px solid black;
+            }
+
+            button:hover {
+                background-color: black;
+                color: white;
+            }
+
+            a {
+                text-decoration: none;
+                color: #3498db;
+                font-weight: bold;
+            }
+
+            a:hover {
+                color: #e74c3c;
+            }
+
+            #one {
+                margin-top: 80px;
+            }
+
+            #cont {
+                margin-top: 7%;
+            }
+
+            .qidinfo {
+                padding: 1%;
+                width: 50%;
+                margin-top: 7%;
+                border-radius: 15px;
+            }
+
+            #comp2 {
+                padding-right: 0%;
+                width: 100%;
+            }
+
+            .card2 {
+                background-color: #fff;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                width: 100%;
+                transition: 0.5s;
+            }
+
+            .card2 a {
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Center contents vertically */
+                text-decoration: none;
+                color: #333;
+            }
+
+            .card2 img {
+                width: 20%; /* Adjust the size of the image */
+                height: auto; /* Maintain aspect ratio */
+                margin-bottom: 10px; /* Add margin below the image */
+            }
+
+            .card2 h2 {
+                margin: 10px 0;
+            }
+            #lastbutton {
+                color: white;
+            }
+            .card2 p {
+                margin-bottom: 5px;
+                font-weight: 500;
+            }
+
+            .card2:hover {
+                background-color: #444444;
+                color: white;
+                transform: translateY(-5px);
+                cursor: pointer;
+                p {
+                    color: white;
+                }
+                h2 {
+                    color: white;
+                }
+            }
+
+            .card:hover a {
+                color: #fff;
+            }
+
+            #gradient-border {
+                --border-width: 3px;
+
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                background-color: #fff;
+                border-radius: var(--border-width);
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: calc(-1 * var(--border-width));
+                    left: calc(-1 * var(--border-width));
+                    z-index: -1;
+                    width: calc(100% + var(--border-width) * 2);
+                    height: calc(100% + var(--border-width) * 2);
+                    background: linear-gradient(
+                        60deg,
+                        hsl(224, 85%, 66%),
+                        hsl(269, 85%, 66%),
+                        hsl(314, 85%, 66%),
+                        hsl(359, 85%, 66%),
+                        hsl(44, 85%, 66%),
+                        hsl(89, 85%, 66%),
+                        hsl(134, 85%, 66%),
+                        hsl(179, 85%, 66%)
+                    );
+                    background-size: 300% 300%;
+                    background-position: 0 50%;
+                    border-radius: calc(2 * var(--border-width));
+                    animation: moveGradient 4s alternate infinite;
+                }
+            }
+
+            @keyframes moveGradient {
+                50% {
+                    background-position: 100% 50%;
+                }
+            }
+        </style>
+
+        <!-- Vendor CSS Files -->
+        <link href="images/assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link
+            href="images/assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="images/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link
+            href="images/assets/vendor/boxicons/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="images/assets/vendor/glightbox/css/glightbox.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="images/assets/vendor/swiper/swiper-bundle.min.css"
+            rel="stylesheet"
+        />
+
+        <link href="/user_home.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top header-transparent">
+            <div
+                class="container d-flex align-items-center justify-content-between"
+            >
+                <div class="logo">
+                    <!--<h1><a href="index.html">GPREC QUIZ</a></h1> -->
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a th:href="@{/admin-page}"
+                        ><img
+                            src="images/logo.png"
+                            alt=""
+                            class="img-fluid logo"
+                    /></a>
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page}"
+                                >Home</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page/noticeboard}"
+                                >Noticeboard</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page/finalreport}"
+                                >Results</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                class="getstarted scrollto"
+                                id="lastbutton"
+                                th:href="@{/logout}"
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!--<div class="container" id="one">
+		    <div class="card">
+		        <h2>Welcome, [[${user.getFullname()}]]</h2>
+		        <p>This is your personalized dashboard.</p>
+		      
+		    </div>
+		</div>-->
+
+        <div class="samerow">
+            <div class="container" id="cont">
+                <div class="card">
+                    <h4>Create Quiz</h4>
+                    <form th:action="@{/admin-page/add}" method="get">
+                        <label>Enter Quiz Id : </label>
+                        <input
+                            type="text"
+                            name="category"
+                            required
+                        /><br /><br />
+                        <button type="submit" id="bu">CreateQuiz</button>
+                    </form>
+                </div>
+            </div>
+            <div class="qidinfo" id="gradient-border">
+                <h2>Naming rules for quiz id</h2>
+                <p>these are the rules to be followed.</p>
+                <ol type="1">
+                    <li>Give subject code first.</li>
+                    <li>Append letter q to it.</li>
+                    <li>Append the quiz number.</li>
+                </ol>
+                <ul>
+                    <li>Ex: nsc + q + 1 = "<b>nscq1</b>"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="samerow">
+            <div class="container" id="comp2">
+                <div class="card2">
+                    <a href="/admin-page/noticeboard">
+                        <img
+                            src="images/bulletin-board.png"
+                            alt="Noticeboard Image"
+                        />
+                        <h2>Noticeboard</h2>
+                        <p>Click here to access the noticeboard.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container" id="comp2">
+                <div class="card2">
+                    <a href="/admin-page/finalreport">
+                        <img
+                            src="images/evaluation.png"
+                            alt="Final Report Image"
+                        />
+                        <h2>Results</h2>
+                        <p>Click here to get your section results.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

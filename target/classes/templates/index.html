@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        <title>GPREC QUIZ</title>
+        <meta content="" name="description" />
+        <meta content="" name="keywords" />
+
+        <!-- Favicons -->
+        <link href="/images/GPREC.png" rel="icon" />
+        <link href="/images/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+
+        <!-- Vendor CSS Files -->
+        <link href="/images/assets/vendor/aos/aos.css" rel="stylesheet" />
+        <link
+            href="/images/assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/boxicons/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/glightbox/css/glightbox.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="/images/assets/vendor/swiper/swiper-bundle.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- Template Main CSS File -->
+        <link href="/images/assets/css/style.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top header-transparent">
+            <div
+                class="container d-flex align-items-center justify-content-between"
+            >
+                <div class="logo">
+                    <!--<h1><a href="index.html">GPREC QUIZ</a></h1> -->
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a th:href="@{/}"
+                        ><img
+                            src="/images/logo.png"
+                            alt=""
+                            class="img-fluid"
+                    /></a>
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a class="nav-link scrollto active" href="#hero"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto" href="#features"
+                                >Features</a
+                            >
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto" href="#about"
+                                >About Us</a
+                            >
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto" href="#contact"
+                                >Contact</a
+                            >
+                        </li>
+                        <li >
+                            <a id="lastbutton"
+                                class="getstarted scrollto"
+								th:href="@{/signin}"
+                                >Get Started</a
+                            >
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div
+                        class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1"
+                        data-aos="fade-up"
+                    >
+                        <div>
+                            <h1>Welcome to GPREC Quiz Application!</h1>
+                            <h2>
+                                Are you ready to experience a seamless and
+                                efficient way to manage and participate in
+                                quizzes at GPREC?
+                            </h2>
+                        </div>
+                    </div>
+                    <div
+                        class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img"
+                        data-aos="fade-up"
+                    >
+                        <img
+                            src="/images/assets/img/hero-img.png"
+                            class="img-fluid"
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Hero -->
+
+        <main id="main">
+            <!-- ======= App Features Section ======= -->
+            <section id="features" class="features">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Website Features</h2>
+                        <p>
+                            Our website is replete with an extensive array of
+                            captivating and exceptionally advantageous features
+                            that truly elevate your online experience. Let us
+                            delve into a selection of these extraordinary
+                            offerings!
+                        </p>
+                    </div>
+
+                    <div class="row no-gutters">
+                        <div
+                            class="col-xl-7 d-flex align-items-stretch order-2 order-lg-1"
+                        >
+                            <div
+                                class="content d-flex flex-column justify-content-center"
+                            >
+                                <div class="row">
+                                    <div
+                                        class="col-md-6 icon-box"
+                                        data-aos="fade-up"
+                                    >
+                                        <i class="bx bx-chart"></i>
+                                        <h4>Performance Metrics</h4>
+                                        <p>
+                                            Track and analyze student
+                                            performance with detailed metrics
+                                            and reports.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="col-md-6 icon-box"
+                                        data-aos="fade-up"
+                                        data-aos-delay="100"
+                                    >
+                                        <i class="bx bx-time"></i>
+                                        <h4>Time Constrained</h4>
+                                        <p>
+                                            Set time limits for quizzes,
+                                            ensuring efficient time management.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="col-md-6 icon-box"
+                                        data-aos="fade-up"
+                                        data-aos-delay="200"
+                                    >
+                                        <i class="bx bx-lock"></i>
+                                        <h4>Security Measures</h4>
+                                        <p>
+                                            Implement security measures to
+                                            prevent cheating in exam.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="col-md-6 icon-box"
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+                                    >
+                                        <i class="bx bx-shield-alt"></i>
+                                        <h4>Data Protection</h4>
+                                        <p>
+                                            Ensure data protection and privacy
+                                            for all quiz content and results.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="col-md-6 icon-box"
+                                        data-aos="fade-up"
+                                        data-aos-delay="500"
+                                    >
+                                        <i class="bx bx-user"></i>
+                                        <h4>User-Friendly Interface</h4>
+                                        <p>
+                                            Provide a user-friendly and
+                                            intuitive interface for easy
+                                            navigation and use.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="col-md-6 icon-box"
+                                        data-aos="fade-up"
+                                        data-aos-delay="400"
+                                    >
+                                        <i class="bx bx-book"></i>
+                                        <h4>Educational Resources</h4>
+                                        <p>
+                                            Access a library of educational
+                                            resources to enhance the learning
+                                            experience.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="image col-xl-5 d-flex align-items-stretch justify-content-center order-1 order-lg-2"
+                            data-aos="fade-left"
+                            data-aos-delay="100"
+                        >
+                            <img
+                                src="images/assets/img/features.png"
+                                class="img-fluid"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End App Features Section -->
+
+            <!-- ======= ABOUT US Section ======= -->
+            <section id="about" class="about">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>About Us</h2>
+                        <p>
+                            We are a team of three, dedicated to enhancing
+                            learning at GPREC. Our Quiz App empowers faculty to
+                            create quizzes and students to engage actively,
+                            fostering a culture of continuous learning and
+                            academic excellence.
+                        </p>
+                        <div class="about">
+                            <div class="persons">
+                                <div class="person">
+                                    <div class="about-cont">
+                                        <div class="about-cont-inner">
+                                            <img
+                                                class="circle"
+                                                src="/images/background1.png"
+                                            />
+                                            <img
+                                                class="img img1"
+                                                src="/images/NARASIMHA.png"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="name">HN LAKSHMI NARASIMHA</div>
+                                    <div class="title">209X1A0592</div>
+                                    <div class="social-links">
+                                        <a
+                                            href="https://www.linkedin.com/in/lakshmi-narasimha-hn"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="/images/linkedin-logo.png"
+                                                alt="LinkedIn Profile"
+                                            />
+                                        </a>
+                                        <a
+                                            href="https://github.com/your-github-profile"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="/images/github-logo.png"
+                                                alt="GitHub Profile"
+                                            />
+                                        </a>
+                                        <a
+                                            href="https://www.instagram.com/hnlakshminarasimha/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="/images/instagram-logo.png"
+                                                alt="Instagram Profile"
+                                            />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="person">
+                                    <div class="about-cont">
+                                        <div class="about-cont-inner">
+                                            <img
+                                                class="circle"
+                                                src="/images/background3.png"
+                                            />
+                                            <img
+                                                class="img img2"
+                                                src="/images/PAVAN.png"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="name">
+                                        DURGA SAI PAVAN KUMAR
+                                    </div>
+                                    <div class="title">219X5A05K8</div>
+                                    <div class="social-links">
+                                        <a
+                                            href="https://www.linkedin.com/in/your-linkedin-profile"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="images/linkedin-logo.png"
+                                                alt="LinkedIn Profile"
+                                            />
+                                        </a>
+                                        <a
+                                            href="https://github.com/your-github-profile"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="/images/github-logo.png"
+                                                alt="GitHub Profile"
+                                            />
+                                        </a>
+                                        <a
+                                            href="https://www.instagram.com/your-instagram-profile"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="/images/instagram-logo.png"
+                                                alt="Instagram Profile"
+                                            />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="person">
+                                    <div class="about-cont">
+                                        <div class="about-cont-inner">
+                                            <img
+                                                class="circle"
+                                                src="/images/background2.png"
+                                            />
+                                            <img
+                                                class="img img3"
+                                                src="/images/BHARANI.png"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="name">
+                                        K BHARANI KUMAR REDDY
+                                    </div>
+                                    <div class="title">209X1A0598</div>
+                                    <div class="social-links">
+                                        <a
+                                            href="https://www.linkedin.com/in/bharanikudala/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="/images/linkedin-logo.png"
+                                                alt="LinkedIn Profile"
+                                            />
+                                        </a>
+                                        <a
+                                            href="https://github.com/kudala-bharani"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="/images/github-logo.png"
+                                                alt="GitHub Profile"
+                                            />
+                                        </a>
+                                        <a
+                                            href="https://www.instagram.com/bunnykudala/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="/images/instagram-logo.png"
+                                                alt="Instagram Profile"
+                                            />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End ABOUT US Section -->
+
+            <!-- ======= Contact Section ======= -->
+            <section id="contact" class="contact">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>Contact Us</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-6 info">
+                                    <i class="bx bx-map"></i>
+                                    <h4>Address</h4>
+                                    <p>
+                                        G Pulla Reddy Nagar,<br />Nandyal Road,
+                                        Kurnool 518007
+                                    </p>
+                                </div>
+                                <div class="col-lg-6 info">
+                                    <i class="bx bx-phone"></i>
+                                    <h4>Call Us</h4>
+                                    <p>
+                                        +91 08518-270957<br />+91 08518-280719
+                                    </p>
+                                </div>
+                                <div class="col-lg-6 info">
+                                    <i class="bx bx-envelope"></i>
+                                    <h4>Email Us</h4>
+                                    <p>info@gprec.ac.in</p>
+                                </div>
+                                <div class="col-lg-6 info">
+                                    <i class="bx bx-time-five"></i>
+                                    <h4>Working Hours</h4>
+                                    <p>
+                                        Mon - Sat: 9AM to 5PM<br />Sunday: 9AM
+                                        to 1PM
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <form
+                                action="forms/contact.php"
+                                method="post"
+                                role="form"
+                                class="php-email-form"
+                                data-aos="fade-up"
+                            >
+                                <div class="form-group">
+                                    <input
+                                        placeholder="Your Name"
+                                        type="text"
+                                        name="name"
+                                        class="form-control"
+                                        id="name"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input
+                                        placeholder="Your Email"
+                                        type="email"
+                                        class="form-control"
+                                        name="email"
+                                        id="email"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input
+                                        placeholder="Subject"
+                                        type="text"
+                                        class="form-control"
+                                        name="subject"
+                                        id="subject"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group mt-3">
+                                    <textarea
+                                        placeholder="Message"
+                                        class="form-control"
+                                        name="message"
+                                        rows="5"
+                                        required
+                                    ></textarea>
+                                </div>
+                                <div class="my-3">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">
+                                        Your message has been sent. Thank you!
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Contact Section -->
+        </main>
+        <!-- End #main -->
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 footer-contact">
+                            <h3>GPREC</h3>
+                            <p>
+                                G Pulla Reddy Nagar <br />
+                                Nandyal Road, Kurnool, 518007<br />
+                                <strong>Phone:</strong> +91 08518-270957<br />
+                                <strong>Email:</strong> info@gprec.ac.in<br />
+                            </p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Useful Links</h4>
+                            <ul>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a
+                                        class="nav-link scrollto active"
+                                        href="#hero"
+                                        >Home</a
+                                    >
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a
+                                        class="nav-link scrollto active"
+                                        href="#features"
+                                        >Features</a
+                                    >
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a
+                                        class="nav-link scrollto active"
+                                        href="#about"
+                                        >About us</a
+                                    >
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a
+                                        class="nav-link scrollto active"
+                                        href="#contact"
+                                        >Contact</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Courses</h4>
+                            <ul>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">CIV</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">EEE</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">ECE</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">MEC</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-chevron-right"></i>
+                                    <a href="#">CSE</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Our Social Networks</h4>
+
+                            <div class="social-links mt-3">
+                                <a
+                                    href="https://twitter.com/GPRECK"
+                                    class="twitter"
+                                    target="_blank"
+                                    ><i class="bx bxl-twitter"></i
+                                ></a>
+                                <a
+                                    href="https://www.facebook.com/GPREC.Kurnool"
+                                    class="facebook"
+                                    target="_blank"
+                                    ><i class="bx bxl-facebook"></i
+                                ></a>
+                                <a href="#" class="instagram"
+                                    ><i class="bx bxl-instagram"></i
+                                ></a>
+                                <a href="#" class="google-plus"
+                                    ><i class="bx bxl-skype"></i
+                                ></a>
+                                <a
+                                    href="https://www.linkedin.com/school/g.-pulla-reddy-engineering-college/"
+                                    class="linkedin"
+                                    target="_blank"
+                                    ><i class="bx bxl-linkedin"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+        <a
+            href="#"
+            class="back-to-top d-flex align-items-center justify-content-center"
+            ><i class="bi bi-arrow-up-short"></i
+        ></a>
+
+        <!-- Vendor JS Files -->
+        <script src="images/assets/vendor/aos/aos.js"></script>
+        <script src="images/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="images/assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="images/assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="images/assets/vendor/php-email-form/validate.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="images/assets/js/main.js"></script>
+    </body>
+</html>

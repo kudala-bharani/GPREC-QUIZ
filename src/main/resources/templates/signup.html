@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+    <link href="/images/GPREC.png" rel="icon" />
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+		.message {
+            background-color:#5777ba;
+            color: white;
+            justify-content: center;
+            padding: 10px;
+            margin-top: 20px;
+            margin-left: 20%;
+            margin-right: 20%;
+            border-radius: 5px;
+            margin-bottom: 2%;
+        }
+        
+        body {
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body class="fade-in">
+
+    <div class="main">
+		<div class="message" th:if="${message != null}">
+           [[${message}]]
+        </div>
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form th:action="@{/registration}" th:object="${user}" method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="fullname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input th:field="*{fullname}" type="text" name="name" id="name" placeholder="Your Name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input th:field="*{email}" type="email" name="email" id="email" placeholder="Your Email" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input th:field="*{password}" type="password" name="pass" id="pass" placeholder="Password" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input th:field="*{rollnumber}" type="text" name="re_pass" id="re_pass" placeholder="Your Roll number" required/>
+                            </div>
+                            
+                            <!-- New block -->
+                            <div class="form-group">
+                                <select name="role" id="role">
+                                    <option value="Role"><b>Role</b></option>
+                                    <option th:field="*{role}" value="STUDENT">Student</option>
+                                    <option th:field="*{role}" value="ADMIN">Faculty</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="student-section">
+                                <select name="section" id="section">
+                                    <option value="A"><b>Section</b></option>
+                                    <option th:field="*{section}" value="A">Section A</option>
+                                    <option th:field="*{section}" value="B">Section B</option>
+                                    <option th:field="*{section}" value="C">Section C</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="faculty-subject">
+                                <select name="subject" id="subject">
+                                    <option value="nsc"><b>Subject</b></option>
+                                    <option th:field="*{subject}" value="nsc">NSC</option>
+                                    <option th:field="*{subject}" value="cc">CC</option>
+                                    <option th:field="*{subject}" value="dl">DL</option>
+                                    <option th:field="*{subject}" value="am">AM</option>
+                                    <option th:field="*{subject}" value="mwa">MWA</option>
+                                    <option th:field="*{subject}" value="uhv">UHV-2</option>
+                                </select>
+                            </div>
+                            <!-- ends here -->
+                            <!--
+                            <div class="form-group">
+								
+                                <select name="role" id="role" required>
+                                    <option th:field="*{role}" value="STUDENT">Student</option>
+                                    <option th:field="*{role}" value="ADMIN">Faculty</option>
+                                </select>
+                            </div>
+							<!-- Section selection for students 
+                            <div id="student-sections" class="form-group" style="display: none;">
+                              
+                                <select name="section" id="section">
+                                    <option th:field="*{section}" value="A">Section A</option>
+                                    <option th:field="*{section}" value="B">Section B</option>
+                                    <option th:field="*{section}" value="C">Section C</option>
+                                </select>
+                            </div>
+                            <!-- Subjects selection for faculty 
+                            <div id="faculty-subjects" class="form-group" style="display: none;">
+                               
+                                <select name="subject" id="subject">
+                                    <option th:field="*{subject}" value="nsc">Network Security</option>
+                                    <option th:field="*{subject}" value="cc">Cloud Computing</option>
+                                    <option th:field="*{subject}" value="mwa">Mobile Web Applications</option>
+                                    <option th:field="*{subject}" value="uhv">Ultra High Voltage</option>
+                                    <option th:field="*{subject}" value="dl">Deep Learning</option>
+                                    <option th:field="*{subject}" value="am">Applied Mathematics</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Common section selection for both students and faculty 
+                            <div class="form-group">
+                                <label for="common-sections">Select Common Section:</label>
+                                <select name="common-sections" id="common-sections">
+                                    <option value="a">Section A</option>
+                                    <option value="b">Section B</option>
+                                    <option value="c">Section C</option>
+                                </select>
+                            </div> -->
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signup2.svg" alt="sing up image"></figure>
+                        <a th:href="@{/signin}" class="signup-image-link fade-link">I am already a member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- JS -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script>
+        const roleDropdown = document.querySelector('#role');
+        const studentSection = document.querySelector('#student-section');
+        const facultySubject = document.querySelector('#faculty-subject');
+
+        roleDropdown.addEventListener('change', function () {
+            if (this.value === 'Role') {
+                studentSection.style.display = 'none';
+                facultySubject.style.display = 'none';
+            } else if (this.value === 'STUDENT') {
+                studentSection.style.display = 'block';
+                facultySubject.style.display = 'none';
+            } else if (this.value === 'ADMIN') {
+                studentSection.style.display = 'block';
+                facultySubject.style.display = 'block';
+            }
+        });
+
+        // When a link is clicked, add the 'fade-out' class to the body to initiate the fade-out effect.
+        document.querySelectorAll('.fade-link').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                const href = this.getAttribute('href');
+                setTimeout(function () {
+                    window.location = href; // Load the new page after the fade-out effect.
+                }, 500); // Adjust the timing to match your CSS transition duration.
+            });
+        });
+</script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

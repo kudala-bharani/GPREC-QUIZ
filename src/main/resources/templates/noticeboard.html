@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+    <head xmlns:th="http://www.thymeleaf.org">
+        <meta charset="UTF-8" />
+        <title>Notice Board</title>
+        <link href="/images/GPREC.png" rel="icon" />
+        <style>
+            body {
+                font-family: "Roboto", sans-serif;
+                font-size: 16px;
+                line-height: 1.6;
+                background-color: #ffffff; /* changed background color */
+                margin: 0;
+                padding: 0;
+                height: 90vh; /* added to make sure content is centered vertically */
+                position: relative; /* added to position form absolutely */
+            }
+
+            h1 {
+                font-size: 32px; /* increased font size */
+                color: #333;
+                margin-top: 2%; /* added margin-top */
+                text-align: center;
+            }
+
+            form {
+                width: 700px; /* increased width */
+                background-color: #fff;
+                padding: 20px; /* increased padding */
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* added box-shadow */
+                position: absolute; /* position form absolutely */
+                left: 50%; /* center horizontally */
+                transform: translate(
+                    -50%,
+                    -50%
+                ); /* center horizontally and vertically */
+                margin-top: 10%;
+                margin-bottom: 0%;
+                border: 1px solid #ccc;
+            }
+
+            label {
+                color: #333;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            input {
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 20px; /* increased margin bottom */
+                border: 1px solid #000000;
+                border-radius: 5px;
+                box-sizing: border-box; /* added to include padding in width calculation */
+            }
+
+            button,
+            .but {
+                width: 50%;
+                background-color: #007bff00;
+                color: #000000;
+                padding: 8px 12px;
+                border: 1px solid #000000;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s; /* added transition for smoother hover effect */
+                display: inline-block; /* added to ensure vertical alignment */
+                vertical-align: middle; /* added to ensure vertical alignment */
+                text-align: center;
+                margin-right: 1%;
+            }
+
+            button:hover,
+            .but:hover {
+                background-color: #000000;
+                color: rgb(255, 255, 255);
+                a {
+                    color: white;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: #000000;
+            }
+
+            .side {
+                display: flex;
+            }
+
+            #header {
+                transition: all 0.5s;
+                z-index: 997;
+                transition: all 0.5s;
+                padding: 15px 0;
+                background: rgba(255, 255, 255, 0.95);
+            }
+
+            #header.header-scrolled {
+                background: rgb(255, 255, 255);
+                box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            #header .logo h1 {
+                font-size: 30px;
+                margin: 0;
+                line-height: 1;
+                font-weight: 400;
+                letter-spacing: 2px;
+            }
+
+            #header .logo h1 a,
+            #header .logo h1 a:hover {
+                color: #5777ba;
+                text-decoration: none;
+            }
+
+            #header .logo img {
+                margin: 0;
+                max-height: 40px;
+            }
+
+            /*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+            /**
+* Desktop Navigation 
+*/
+            .navbar {
+                padding: 0;
+                position: relative;
+            }
+
+            .navbar ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                list-style: none;
+                align-items: center;
+            }
+
+            .navbar li {
+                position: relative;
+            }
+
+            .navbar a,
+            .navbar a:focus {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 0 10px 30px;
+                font-family: "Raleway", sans-serif;
+                font-size: 15px;
+                color: #47536e;
+                white-space: nowrap;
+                transition: 0.3s;
+            }
+
+            .navbar a i,
+            .navbar a:focus i {
+                font-size: 12px;
+                line-height: 0;
+                margin-left: 5px;
+            }
+
+            .navbar a:hover,
+            .navbar .active,
+            .navbar .active:focus,
+            .navbar li:hover > a {
+                color: #5777ba;
+            }
+
+            .but {
+                a {
+                    color: black;
+                }
+            }
+
+            .navbar .getstarted,
+            .navbar .getstarted:focus {
+                background: #5777ba;
+                color: #fff;
+                padding: 12px 25px;
+                margin-left: 30px;
+                color: #fff;
+                line-height: 1;
+                border-radius: 50px;
+            }
+
+            .navbar .getstarted:hover,
+            .navbar .getstarted:focus:hover {
+                background: #748ec6;
+                color: #fff;
+            }
+            /**
+* Mobile Navigation 
+*/
+            .mobile-nav-toggle {
+                color: #47536e;
+                font-size: 28px;
+                cursor: pointer;
+                display: none;
+                line-height: 0;
+                transition: 0.5s;
+            }
+
+            .mobile-nav-toggle.bi-x {
+                color: #fff;
+            }
+
+            @media (max-width: 991px) {
+                .mobile-nav-toggle {
+                    display: block;
+                }
+
+                .navbar ul {
+                    display: none;
+                }
+            }
+
+            .navbar-mobile {
+                position: fixed;
+                overflow: hidden;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                background: rgba(51, 60, 79, 0.9);
+                transition: 0.3s;
+                z-index: 999;
+            }
+
+            .navbar-mobile .mobile-nav-toggle {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+
+            .navbar-mobile ul {
+                display: block;
+                position: absolute;
+                top: 55px;
+                right: 15px;
+                bottom: 15px;
+                left: 15px;
+                padding: 10px 0;
+                border-radius: 6px;
+                background-color: #fff;
+                overflow-y: auto;
+                transition: 0.3s;
+            }
+
+            .navbar-mobile a,
+            .navbar-mobile a:focus {
+                padding: 10px 20px;
+                font-size: 15px;
+                color: #47536e;
+            }
+
+            .navbar-mobile a:hover,
+            .navbar-mobile .active,
+            .navbar-mobile li:hover > a {
+                color: #5777ba;
+            }
+
+            .navbar-mobile .getstarted,
+            .navbar-mobile .getstarted:focus {
+                margin: 15px;
+            }
+
+            .container {
+                max-width: 960px;
+                width: 48%;
+                box-sizing: border-box;
+                display: flex;
+                margin-left: 6%;
+                margin-right: 2%;
+            }
+
+            #navbar {
+                margin-left: 100%;
+            }
+        </style>
+        <link href="/user_home.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header id="header" class="fixed-top header-transparent">
+            <div
+                class="container d-flex align-items-center justify-content-between"
+            >
+                <div class="logo">
+                    <!--<h1><a href="index.html">GPREC QUIZ</a></h1> -->
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a th:href="@{/admin-page}"
+                        ><img
+                            src="/images/logo.png"
+                            alt=""
+                            class="img-fluid logo"
+                            id="im"
+                    /></a>
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page}"
+                                >Home</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page/noticeboard}"
+                                >Noticeboard</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page/finalreport}"
+                                >Results</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                class="getstarted scrollto"
+                                th:href="@{/logout}"
+                                id="lastbutton"
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <h1>Notice Board</h1>
+        <form
+            id="add-notice"
+            th:method="post"
+            th:action="@{/admin-page/noticeboard/addnew}"
+            th:object="${notice}"
+        >
+            <label for="updates">Enter New Updates:</label>
+            <input
+                type="text"
+                th:field="*{updates}"
+                id="updates"
+                name="updates"
+                placeholder="Any update posted here will be reflected on student dashboard....!"
+                required
+            />
+            <div class="side">
+                <div class="but"><a th:href="@{/admin-page}">Back</a></div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </body>
+</html>

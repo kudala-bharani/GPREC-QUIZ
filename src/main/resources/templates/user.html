@@ -1,0 +1,412 @@
+<!--   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0e2433;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #45b6fe;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #0e2433;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #45b6fe;
+        }
+
+        /* Add more styles and components for your dashboard here */
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>USER Dashboard</h1>
+    </div>
+    <div class="container">
+        <h2>Welcome, [[${user.getFullname()}]]</h2>
+        
+        <span sec:authorize="isAuthenticated">
+        <a th:href="@{/logout}">
+         Logout
+        
+        </a>
+        
+        </span>
+
+    </div>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .container {
+            margin: 2em;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5em;
+            margin-bottom: 1em;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+        }
+
+        th, td {
+            padding: 0.75em;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>User Dashboard</h1>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Welcome, [[${user.getFullname()}]]</h2>
+        <p>This is your personalized dashboard.</p>
+    </div>
+
+    
+
+    <a th:href="@{/logout}" class="logout-btn">Logout</a>
+</div>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+* {
+    box-sizing: border-box;
+}
+.landing-page header {
+    min-height: 80px;
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .landing-page header {
+        min-height: auto;
+        display: initial;
+    }
+}
+
+.landing-page header .logo {
+    color: #5d5d5d;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+@media (max-width: 767px) {
+    .landing-page header .logo {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.landing-page header .links {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .landing-page header .links {
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+.landing-page header .links li {
+    margin-left: 30px;
+    color: #5d5d5d;
+    cursor: pointer;
+    transition: .3s;
+}
+
+@media (max-width: 767px) {
+    .landing-page header .links li {
+        margin-left: auto;
+    }
+}
+
+.landing-page header .links li:last-child {
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: #FFF;
+    background-color: #6c63ff;
+}
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+.landing-page header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+    .landing-page header .container {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+.landing-page header .links li:last-child a {
+	color: #FFF;
+    text-decoration: none;
+}
+
+.landing-page header .links li:not(:last-child):hover {
+    color: #6c63ff;
+}
+        
+        .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5em;
+            margin-bottom: 1em;
+            border-radius: 8px;
+        }
+
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .subject {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+		
+		.quiz:hover {
+			background-color: #B0D9B1;
+		}
+		
+        .quiz {
+            background-color: #f0f0f0;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .dashboard .subject .quiz a {
+        	color: black;
+        	text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<!--  
+<header>
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+    <a th:href="@{/logout}">Logout</a>
+</header>
+-->
+<div class="landing-page">
+            <header>
+                <div class="container">
+                    <a href="#" class="logo">GPREC <b>QUIZ APPLICATION</b></a>
+                    <ul class="links">
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li><a th:href="@{/aboutus}">Aboutus</a></li>
+                        <li> <a th:href="@{/logout}">Logout</li></a>
+                    </ul>
+                </div>
+            </header>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>Welcome, [[${user.getFullname()}]]</h2>
+        <p>This is your personalized dashboard.</p>
+		<a th:href="@{/category/{sec}/nscq1(sec=${detail.section})}">SectionWiseQuiz</a>
+    </div>
+</div>
+
+<div class="dashboard">
+<!-- Subject: NSC -->
+    <div class="subject" id="nsc">
+        <h4>Network Security & Cryptography</h4>
+        <div class="quiz" id="nsc-quiz1"><a th:href="@{/category/{sec}/nscq1(sec=${detail.section})}">Quiz 1</a></div>
+        <div class="quiz" id="nsc-quiz2"><a th:href="@{/category/{sec}/nscq2(sec=${detail.section})}">Quiz 2</a></div>
+        <div class="quiz" id="nsc-quiz3"><a th:href="@{/category/{sec}/nscq3(sec=${detail.section})}">Quiz 3</a></div>
+        <div class="quiz" id="nsc-quiz4"><a th:href="@{/category/{sec}/nscq4(sec=${detail.section})}">Quiz 4</a></div>
+        <div class="quiz" id="nsc-quiz5"><a th:href="@{/category/{sec}/nscq5(sec=${detail.section})}">Quiz 5</a></div>
+
+    </div>
+
+    <!-- Subject: CC -->
+    <div class="subject" id="cc">
+        <h4>Cloud Computing</h4>
+        <div class="quiz" id="cc-quiz1"><a th:href="@{/category/{sec}/ccq1(sec=${detail.section})}">Quiz 1</a></div>
+        <div class="quiz" id="cc-quiz2"><a th:href="@{/category/{sec}/ccq2(sec=${detail.section})}">Quiz 2</a></div>
+        <div class="quiz" id="cc-quiz3"><a th:href="@{/category/{sec}/ccq3(sec=${detail.section})}">Quiz 3</a></div>
+        <div class="quiz" id="cc-quiz4"><a th:href="@{/category/{sec}/ccq4(sec=${detail.section})}">Quiz 4</a></div>
+        <div class="quiz" id="cc-quiz5"><a th:href="@{/category/{sec}/ccq5(sec=${detail.section})}">Quiz 5</a></div>
+
+    </div>
+
+    <!-- Subject: DL -->
+    <div class="subject" id="dl">
+        <h4>Deep Learning</h4>
+        <div class="quiz" id="dl-quiz1"><a th:href="@{/category/{sec}/dlq1(sec=${detail.section})}">Quiz 1</a></div>
+        <div class="quiz" id="dl-quiz2"><a th:href="@{/category/{sec}/dlq2(sec=${detail.section})}">Quiz 2</a></div>
+        <div class="quiz" id="dl-quiz3"><a th:href="@{/category/{sec}/dlq3(sec=${detail.section})}">Quiz 3</a></div>
+        <div class="quiz" id="dl-quiz4"><a th:href="@{/category/{sec}/dlq4(sec=${detail.section})}">Quiz 4</a></div>
+        <div class="quiz" id="dl-quiz5"><a th:href="@{/category/{sec}/dlq5(sec=${detail.section})}">Quiz 5</a></div>
+
+    </div>
+
+    <!-- Subject: AM -->
+    <div class="subject" id="am">
+        <h4>Agile Methodologies</h4>
+        <div class="quiz" id="am-quiz1"><a th:href="@{/category/amq1}">Quiz 1</a></div>
+        <div class="quiz" id="am-quiz2"><a th:href="@{/category/amq2}">Quiz 2</a></div>
+        <div class="quiz" id="am-quiz3"><a th:href="@{/category/amq3}">Quiz 3</a></div>
+        <div class="quiz" id="am-quiz4"><a th:href="@{/category/amq4}">Quiz 4</a></div>
+    </div>
+
+    <!-- Subject: MWA -->
+    <div class="subject" id="mwa">
+        <h4>Modern Web Applications</h4>
+        <div class="quiz" id="mwa-quiz1"><a th:href="@{/category/mwaq1}">Quiz 1</a></div>
+        <div class="quiz" id="mwa-quiz2"><a th:href="@{/category/mwaq2}">Quiz 2</a></div>
+        <div class="quiz" id="mwa-quiz3"><a th:href="@{/category/mwaq3}">Quiz 3</a></div>
+        <div class="quiz" id="mwa-quiz4"><a th:href="@{/category/mwaq4}">Quiz 4</a></div>
+    </div>
+
+    <!-- Subject: UHV2 -->
+    <div class="subject" id="uhv2">
+        <h4>Universal Human Values - 2</h4>
+        <div class="quiz" id="uhv2-quiz1"><a th:href="@{/category/uhvq1}">Quiz 1</a></div>
+        <div class="quiz" id="uhv2-quiz2"><a th:href="@{/category/uhvq2}">Quiz 2</a></div>
+        <div class="quiz" id="uhv2-quiz3"><a th:href="@{/category/uhvq3}">Quiz 3</a></div>
+        <div class="quiz" id="uhv2-quiz4"><a th:href="@{/category/uhvq4}">Quiz 4</a></div>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
+

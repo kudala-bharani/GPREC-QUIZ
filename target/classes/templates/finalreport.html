@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Results</title>
+        <link href="/images/GPREC.png" rel="icon" />
+    </head>
+    <style>
+                body,
+                h1 {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                /* CSS Styles for your page */
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: rgb(255, 255, 255);
+                    margin: 0;
+                    padding: 0;
+                }
+
+                h1 {
+                    text-align: center;
+                    color: #333;
+                    margin-top: 20px;
+                }
+
+                table {
+                    width: 80%;
+                    margin: 20px auto;
+                    border-collapse: collapse;
+                    background-color: #fff;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    overflow: hidden; /* Hide overflow content */
+                    border-radius: 8px; /* Add some border radius */
+                }
+
+                th,
+                td {
+                    border: 1px solid #ccc;
+                    padding: 12px; /* Increased padding for better spacing */
+                    text-align: center;
+                }
+
+                th {
+                    background-color: #333;
+                    color: #fff;
+                }
+
+                tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+
+                /* Smooth transition effect on hover */
+                tr {
+                    transition: background-color 0.3s;
+                }
+
+                /* Highlight even rows on hover */
+                tr:nth-child(even):hover {
+                    background-color: #ddd;
+                }
+
+                /* Highlight odd rows on hover */
+                tr:nth-child(odd):hover {
+                    background-color: #ccc;
+                }
+
+                #header {
+                        transition: all 0.5s;
+                        z-index: 997;
+                        transition: all 0.5s;
+                        padding: 15px 0;
+                        background: rgba(255, 255, 255, 0.95);
+                    }
+
+                    #header.header-scrolled {
+                        background: rgb(255, 255, 255);
+                        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+                    }
+
+                    #header .logo h1 {
+                        font-size: 30px;
+                        margin: 0;
+                        line-height: 1;
+                        font-weight: 400;
+                        letter-spacing: 2px;
+                    }
+
+                    #header .logo h1 a,
+                    #header .logo h1 a:hover {
+                        color: #5777ba;
+                        text-decoration: none;
+                    }
+
+                    #header .logo img {
+                        margin: 0;
+                        max-height: 40px;
+                    }
+
+                    /*--------------------------------------------------------------
+        # Navigation Menu
+        --------------------------------------------------------------*/
+                    /**
+        * Desktop Navigation
+        */
+                    .navbar {
+                        padding: 0;
+                        position: relative;
+                    }
+
+                    .navbar ul {
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        list-style: none;
+                        align-items: center;
+                    }
+
+                    .navbar li {
+                        position: relative;
+                    }
+
+                    .navbar a,
+                    .navbar a:focus {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 10px 0 10px 30px;
+                        font-family: "Raleway", sans-serif;
+                        font-size: 15px;
+                        color: #47536e;
+                        white-space: nowrap;
+                        transition: 0.3s;
+                    }
+
+                    .navbar a i,
+                    .navbar a:focus i {
+                        font-size: 12px;
+                        line-height: 0;
+                        margin-left: 5px;
+                    }
+
+                    .navbar a:hover,
+                    .navbar .active,
+                    .navbar .active:focus,
+                    .navbar li:hover > a {
+                        color: #5777ba;
+                    }
+
+                    #but {
+                        color: white;
+                    }
+
+                    .navbar .getstarted,
+                    .navbar .getstarted:focus {
+                        background: #5777ba;
+                        color: #fff;
+                        padding: 12px 25px;
+                        margin-left: 30px;
+                        color: #fff;
+                        line-height: 1;
+                        border-radius: 50px;
+                    }
+
+                    .navbar .getstarted:hover,
+                    .navbar .getstarted:focus:hover {
+                        background: #748ec6;
+                        color: #fff;
+                    }
+                    /**
+        * Mobile Navigation
+        */
+                    .mobile-nav-toggle {
+                        color: #47536e;
+                        font-size: 28px;
+                        cursor: pointer;
+                        display: none;
+                        line-height: 0;
+                        transition: 0.5s;
+                    }
+
+                    .mobile-nav-toggle.bi-x {
+                        color: #fff;
+                    }
+
+                    @media (max-width: 991px) {
+                        .mobile-nav-toggle {
+                            display: block;
+                        }
+
+                        .navbar ul {
+                            display: none;
+                        }
+                    }
+
+                    .navbar-mobile {
+                        position: fixed;
+                        overflow: hidden;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        bottom: 0;
+                        background: rgba(51, 60, 79, 0.9);
+                        transition: 0.3s;
+                        z-index: 999;
+                    }
+
+                    .navbar-mobile .mobile-nav-toggle {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                    }
+
+                    .navbar-mobile ul {
+                        display: block;
+                        position: absolute;
+                        top: 55px;
+                        right: 15px;
+                        bottom: 15px;
+                        left: 15px;
+                        padding: 10px 0;
+                        border-radius: 6px;
+                        background-color: #fff;
+                        overflow-y: auto;
+                        transition: 0.3s;
+                    }
+
+                    .navbar-mobile a,
+                    .navbar-mobile a:focus {
+                        padding: 10px 20px;
+                        font-size: 15px;
+                        color: #47536e;
+                    }
+
+                    .navbar-mobile a:hover,
+                    .navbar-mobile .active,
+                    .navbar-mobile li:hover > a {
+                        color: #5777ba;
+                    }
+
+                    .navbar-mobile .getstarted,
+                    .navbar-mobile .getstarted:focus {
+                        margin: 15px;
+                    }
+
+                    .container {
+                        max-width: 960px;
+                        width: 48%;
+                        box-sizing: border-box;
+                        display: flex;
+                        margin-left: 6%;
+                        margin-right: 2%;
+                    }
+
+                    #navbar {
+                        margin-left: 100%;
+                    }
+    </style>
+    <link href="/user_home.css" rel="stylesheet" />
+    <body>
+        <header id="header" class="fixed-top header-transparent">
+            <div
+                class="container d-flex align-items-center justify-content-between"
+            >
+                <div class="logo">
+                    <!--<h1><a href="index.html">GPREC QUIZ</a></h1> -->
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a th:href="@{/admin-page}"
+                        ><img
+                            src="/images/logo.png"
+                            alt=""
+                            class="img-fluid logo"
+                            id="im"
+                    /></a>
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page}"
+                                >Home</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page/noticeboard}"
+                                >Noticeboard</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
+                                class="nav-link scrollto active"
+                                th:href="@{/admin-page/finalreport}"
+                                >Results</a
+                            >
+                        </li>
+
+                        <li>
+                            <a class="getstarted scrollto" 
+                            id="lastbutton"th:href="@{/logout}"
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <h1>Results</h1>
+        <table border="1">
+            <tr>
+                <th>Roll Number</th>
+                <th th:each="field : ${fields}">[[${field}]]</th>
+            </tr>
+            <tr th:each="result : ${res}">
+                <td th:text="${result.rollnumber}"></td>
+                <td th:each="field : ${fields}" th:text="${result[field]}"></td>
+            </tr>
+        </table>
+    </body>
+    <script>
+        // JavaScript code for interactivity
+        // Function to highlight rows on hover
+        const tableRows = document.querySelectorAll("tr");
+        tableRows.forEach((row, index) => {
+            row.addEventListener("mouseover", () => {
+                if (index % 2 === 0) {
+                    row.style.backgroundColor = "#ddd"; // Highlight even rows
+                } else {
+                    row.style.backgroundColor = "#ccc"; // Highlight odd rows
+                }
+            });
+            row.addEventListener("mouseout", () => {
+                row.style.backgroundColor = ""; // Reset the background color on mouseout
+            });
+        });
+    </script>
+</html>
